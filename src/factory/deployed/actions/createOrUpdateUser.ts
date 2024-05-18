@@ -1,6 +1,6 @@
 import { UserEntity } from "generated";
 import { DeployedContext, DeployedEventLog } from "../constants";
-import { INITIAL_USER } from "../../utils";
+import { INITIAL_USER } from "../../../constants";
 
 export async function createOrUpdateUser(
   event: DeployedEventLog,

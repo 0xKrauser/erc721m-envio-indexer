@@ -13,6 +13,8 @@ networks:
       isAsync: true
     - event: OwnershipTransferred(address indexed oldOwner, address indexed newOwner)
   - name: ERC721M
+    address: 
+    - 0xeA9aF8dBDdE2A8d3515C3B4E446eCd41afEdB1C6
     handler: src/erc721m/handlers.ts
     events:
     - event: AlignmentUpdate(uint16 indexed minAllocation, uint16 indexed maxAllocation)
@@ -39,4 +41,5 @@ networks:
     - event: TokenLocked(uint256 indexed tokenId, address indexed approvedContract)
     - event: TokenUnlocked(uint256 indexed tokenId, address indexed approvedContract)
     - event: Transfer(address indexed from, address indexed to, uint256 indexed id)
+      isAsync: true
     - event: URILock()

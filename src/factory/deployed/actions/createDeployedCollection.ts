@@ -5,7 +5,7 @@ import {
   INITIAL_COLLECTION,
 } from "../constants";
 import { getCollectionId } from "../utils";
-import { INITIAL_CONTRACT_METADATA, getFactoryId } from "../../utils";
+import { getFactoryId } from "../../utils";
 import { getContractMetadata } from "../../../getContractMetadata";
 import { Address } from "viem";
 import { createMetadata } from "./createMetadata";
@@ -24,11 +24,12 @@ export async function createDeployedCollection(
 
   const address = event.params.collection as Address;
 
-  const { name, symbol, totalSupply, contractUri } = await getContractMetadata({
-    chainId,
-    address,
-    blockNumber: BigInt(blockNumber),
-  });
+  const { name, symbol, totalSupply, contractUri, price } =
+    await getContractMetadata({
+      chainId,
+      address,
+      blockNumber: BigInt(blockNumber),
+    });
 
   const metadata = await createMetadata({
     id,

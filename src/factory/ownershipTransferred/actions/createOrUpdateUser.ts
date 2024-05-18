@@ -3,7 +3,7 @@ import {
   OwnershipTransferredContext,
   OwnershipTransferredEventLog,
 } from "../constants";
-import { INITIAL_USER } from "../../utils";
+import { INITIAL_USER } from "../../../constants";
 
 export function createOrUpdateUser(
   event: OwnershipTransferredEventLog,

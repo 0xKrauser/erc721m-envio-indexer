@@ -14,25 +14,7 @@ type FactorySummary {
   updatedBlock: BigInt!
 }
 
-type Erc721Summary {
-  id: ID!
-  chain: BigInt!
-  address: String!
-  """
-  id: chain+address
-  """
-  Approval: [Approval!]! @derivedFrom(field: "eventsSummary")
-  ApprovalCount: BigInt!
-  ApprovalForAll: [ApprovalForAll!]! @derivedFrom(field: "eventsSummary")
-  ApprovalForAllCount: BigInt!
-  OwnershipTransferred: [CollectionOwnershipTransferred!]!
-    @derivedFrom(field: "eventsSummary")
-  OwnershipTransferredCount: BigInt!
-  Transfer: [Transfer!]! @derivedFrom(field: "eventsSummary")
-  TransferCount: BigInt!
-}
-
-type Erc721mSummary {
+type NftSummary {
   id: ID!
   chain: BigInt!
   """
@@ -87,6 +69,8 @@ type Erc721mSummary {
   TransferCount: BigInt!
   URILock: [URILock!]! @derivedFrom(field: "eventsSummary")
   URILockCount: BigInt!
+  updatedAt: BigInt!
+  updatedBlock: BigInt!
 }
 
 type AlignmentUpdate {
