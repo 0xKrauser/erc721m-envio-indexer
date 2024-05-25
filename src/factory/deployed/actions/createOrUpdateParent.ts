@@ -22,7 +22,7 @@ export async function createOrUpdateParent(
   let metadata: ContractMetadataEntity | undefined;
   let name: string | undefined;
   let symbol: string | undefined;
-  let totalSupply: bigint | undefined;
+  let maxSupply: bigint | undefined;
   let contractUri: string | undefined;
   if (!parent) {
     const { chainId } = event;
@@ -34,7 +34,7 @@ export async function createOrUpdateParent(
     });
     name = data.name;
     symbol = data.symbol;
-    totalSupply = data.totalSupply;
+    maxSupply = data.maxSupply;
     contractUri = data.contractUri;
     metadata = await createMetadata({
       id,
@@ -51,7 +51,7 @@ export async function createOrUpdateParent(
     address: event.params.aligned,
     name,
     symbol,
-    totalSupply,
+    maxSupply,
     metadataUri: contractUri,
     metadata_id: id,
     encounteredAt: currentTime,

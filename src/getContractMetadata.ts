@@ -18,21 +18,20 @@ export async function getContractMetadata({
   let contracts = [
     { ...config, functionName: "name" },
     { ...config, functionName: "symbol" },
-    { ...config, functionName: "totalSupply" },
+    { ...config, functionName: "maxSupply" },
     { ...config, functionName: "contractURI" },
     { ...config, functionName: "price" },
   ];
 
-  const [name, symbol, totalSupply, contractUri, price] =
-    await client.multicall({
-      batchSize: 10,
-      contracts,
-    });
+  const [name, symbol, maxSupply, contractUri, price] = await client.multicall({
+    batchSize: 10,
+    contracts,
+  });
 
   return {
     name: name.result as string | undefined,
-    totalSupply: totalSupply.result as bigint | undefined,
     symbol: symbol.result as string | undefined,
+    maxSupply: maxSupply.result as bigint | undefined,
     contractUri: contractUri.result as string | undefined,
     price: price.result as bigint | undefined,
   };

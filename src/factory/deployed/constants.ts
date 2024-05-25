@@ -28,7 +28,7 @@ export const INITIAL_COLLECTION: CollectionEntity = {
   isParent: true,
   name: undefined,
   symbol: undefined,
-  totalSupply: undefined,
+  maxSupply: undefined,
   alignment: undefined,
   metadataUri: undefined,
   metadata_id: undefined,

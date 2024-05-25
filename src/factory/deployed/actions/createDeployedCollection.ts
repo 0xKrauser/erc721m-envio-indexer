@@ -24,7 +24,7 @@ export async function createDeployedCollection(
 
   const address = event.params.collection as Address;
 
-  const { name, symbol, totalSupply, contractUri, price } =
+  const { name, symbol, maxSupply, contractUri, price } =
     await getContractMetadata({
       chainId,
       address,
@@ -50,7 +50,7 @@ export async function createDeployedCollection(
     isErc721m: true,
     name,
     symbol,
-    totalSupply,
+    maxSupply,
     metadataUri: contractUri,
     metadata_id: id,
     createdAt: currentTime,

@@ -314,7 +314,7 @@ type Collection {
   isParent: Boolean!
   name: String
   symbol: String
-  totalSupply: BigInt
+  maxSupply: BigInt
   metadataUri: String
   metadata: ContractMetadata
   tokens: [Token!]! @derivedFrom(field: "collection")
