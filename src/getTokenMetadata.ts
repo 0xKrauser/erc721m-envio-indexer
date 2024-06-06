@@ -1,4 +1,4 @@
-import { Abi, Address } from "viem";
+import { Abi, Address, parseAbi, parseAbiItem } from "viem";
 import { getClient } from "./client";
 import erc721mAbi from "../abis/erc721m.json";
 
@@ -15,28 +15,33 @@ export async function getTokenMetadata({
 }) {
   const client = getClient(chainId);
 
-  const config = { blockNumber, abi: erc721mAbi as Abi, address };
+  const config = {
+    blockNumber,
+    address,
+  };
 
   let contracts = [
     { ...config, functionName: "tokenURI", arguments: [tokenId] },
   ];
 
-  let tokenURI;
-  let flag = true;
-  while (flag) {
-    if (!config.blockNumber) flag = false;
-    try {
-      const [uri] = await client.multicall({
-        batchSize: 10,
-        contracts,
-      });
-
-      tokenURI = uri;
-      flag = false;
-    } catch (e) {
-      config.blockNumber = undefined;
-    }
+  try {
+    const [uri] = await client.multicall({
+      batchSize: 10,
+      contracts: [
+        {
+          address,
+          functionName: "tokenURI",
+          abi: parseAbi([
+            "function tokenURI(uint256 tokenId) external view returns (string memory)",
+          ]),
+          args: [tokenId],
+        },
+      ],
+    });
+    return uri?.result as string | undefined;
+  } catch (e) {
+    console.error(e);
   }
 
-  return tokenURI?.result as string | undefined;
+  return undefined;
 }

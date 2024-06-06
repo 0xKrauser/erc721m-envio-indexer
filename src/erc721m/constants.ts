@@ -1,4 +1,4 @@
-import { NftSummaryEntity, TokenEntity } from "generated";
+import { NftSummaryEntity, TokenEntity, TokenMetadataEntity } from "generated";
 
 export const INITIAL_NFT_SUMMARY: NftSummaryEntity = {
   id: "",
@@ -39,6 +39,22 @@ export const INITIAL_TOKEN: TokenEntity = {
   chain: 0n,
   createdAt: 0n,
   createdBlock: 0n,
+  updatedAt: 0n,
+  updatedBlock: 0n,
+};
+
+export const INITIAL_TOKEN_METADATA: TokenMetadataEntity = {
+  id: "",
+  raw: "",
+  name: undefined,
+  description: undefined,
+  image: undefined,
+  external_link: undefined,
+  attributes: "[]",
+  createdAt: 0n,
+  createdBlock: 0n,
+  encounteredAt: 0n,
+  encounteredBlock: 0n,
   updatedAt: 0n,
   updatedBlock: 0n,
 };

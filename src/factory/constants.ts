@@ -14,6 +14,13 @@ export const INITIAL_EVENTS_SUMMARY: FactorySummaryEntity = {
 export const INITIAL_CONTRACT_METADATA: ContractMetadataEntity = {
   id: "",
   raw: "",
+  name: undefined,
+  description: undefined,
+  external_link: undefined,
+  image: undefined,
+  featured_image: undefined,
+  banner_image: undefined,
+  collaborators: [],
   createdAt: undefined,
   createdBlock: undefined,
   encounteredAt: undefined,

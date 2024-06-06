@@ -12,14 +12,14 @@ importers:
         specifier: 4.3.10
         version: 4.3.10
       envio:
-        specifier: 0.0.41
-        version: 0.0.41
+        specifier: 1.1.0
+        version: 1.1.0
       ethers:
         specifier: 6.8.0
         version: 6.8.0
       viem:
-        specifier: 1.16.6
-        version: 1.16.6(typescript@5.2.2)
+        specifier: 2.13.7
+        version: 2.13.7(typescript@5.2.2)
     optionalDependencies:
       generated:
         specifier: ./generated
@@ -262,6 +262,17 @@ packages:
     peerDependencies:
       typescript: '>=5.0.4'
       zod: ^3 >=3.19.1
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+      zod:
+        optional: true
+
+  abitype@1.0.0:
+    resolution: {integrity: sha512-NMeMah//6bJ56H5XRj8QCV4AwuW6hB6zqz2LnhhLdcWVQOsXki6/Pn3APeqxCma62nXIcmZWdu1DlHWS74umVQ==}
+    peerDependencies:
+      typescript: '>=5.0.4'
+      zod: ^3 >=3.22.0
     peerDependenciesMeta:
       typescript:
         optional: true
@@ -548,28 +559,28 @@ packages:
   end-of-stream@1.4.4:
     resolution: {integrity: sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==}
 
-  envio-darwin-arm64@0.0.41:
-    resolution: {integrity: sha512-jWU4OhgwsB/C4kruRUrcZXtDKbntVUZ9MtAmOj5rOZnalSeUdpiyP/WBjPvndWYtEjCCFObs/tYowrMFJ7KLDA==}
+  envio-darwin-arm64@1.1.0:
+    resolution: {integrity: sha512-DzWnUo0EFVuhgkoRhBvuzpIg2dT9J4brVt/fSIXJDsDP6pOq+ITEO79T48Li49S3iK7T+WOsGfOE82L2rI5bCQ==}
     cpu: [arm64]
     os: [darwin]
 
-  envio-darwin-x64@0.0.41:
-    resolution: {integrity: sha512-qxtKozDD+WLcILosTuxguzS0PjWxzmQewxcR2g54OPCgIl8ok7iI7zZuW3Ftqb1DdAk97sri9vLd+SLquuREjQ==}
+  envio-darwin-x64@1.1.0:
+    resolution: {integrity: sha512-4JS+4Y68gog93FMEvhVTBE7Pk8dVsUVEAloOMu/FpEFFxXNNRT9OjOGa2zrUleAZ8anIxqxyc6V96zIlS+QYSA==}
     cpu: [x64]
     os: [darwin]
 
-  envio-linux-arm64@0.0.41:
-    resolution: {integrity: sha512-QPbJKqVFIerEjedb/GOiD+DIiGaWfnKU3KVVMNBJnil0yO9q1oOhGRvLhAWDbqO+rPZTIbWKP/8KEnhl8bve6Q==}
+  envio-linux-arm64@1.1.0:
+    resolution: {integrity: sha512-wTeeONjBf9zwEsLP+JsRHMjAMweDC8AhCuNaDAiSV28Kzo9Bsmvv1togR/zav7SE4VLzf804dLx/qT9qmMipww==}
     cpu: [arm64]
     os: [linux]
 
-  envio-linux-x64@0.0.41:
-    resolution: {integrity: sha512-MhEfsc8+jfJz5r5Vs90b18Jcl1+I/T5CsmA6nETfa+K+SWNzQZ/rjEnJleOkLEaNrMREoQbqmvoH+hT6tIDg8A==}
+  envio-linux-x64@1.1.0:
+    resolution: {integrity: sha512-z8aNWpOmE4CIZuwkrpF4gxBofNIZ0MjAkOyT9PBVnwJ+dICm1bNyoMy0xtX+c7zfzmJEUIKNIF2Tad2/mV2xDQ==}
     cpu: [x64]
     os: [linux]
 
-  envio@0.0.41:
-    resolution: {integrity: sha512-1bp9cNPFrY3dIORRnZSZwXqSFmKan2zl82XMo2a3QlsHCzlQ0DffZxaoaKFI6j2ukiXGdb+EjtXZxTKr5hDDaQ==}
+  envio@1.1.0:
+    resolution: {integrity: sha512-oVRqQtRYqJJnLj6Rftoh+lrwCrW4RE7ZEfdhJDqfHPLwUy+Qzhi7jqWMPQ+SAnPjtyFNL1Rcsi7MEYJewZ9tEA==}
     hasBin: true
 
   es-define-property@1.0.0:
@@ -823,6 +834,11 @@ packages:
 
   isows@1.0.3:
     resolution: {integrity: sha512-2cKei4vlmg2cxEjm3wVSqn8pcoRF/LX/wpifuuNquFO4SQmPwarClT+SUCA2lt+l581tTeZIPIZuIDo2jWN1fg==}
+    peerDependencies:
+      ws: '*'
+
+  isows@1.0.4:
+    resolution: {integrity: sha512-hEzjY+x9u9hPmBom9IIAqdJCwNLax+xrPb51vEPpERoFlIxgmZcHzsT5jKG06nvInKOBGvReAVz80Umed5CczQ==}
     peerDependencies:
       ws: '*'
 
@@ -1349,6 +1365,14 @@ packages:
       typescript:
         optional: true
 
+  viem@2.13.7:
+    resolution: {integrity: sha512-SZWn9LPrz40PHl4PM2iwkPTTtjWPDFsnLr32UwpqC/Z5f0AwxitjLyZdDKcImvbWZ3vLQ0oPggR1aLlqvTcUug==}
+    peerDependencies:
+      typescript: '>=5.0.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
 
@@ -1562,6 +1586,10 @@ snapshots:
   '@types/yoga-layout@1.9.2': {}
 
   abitype@0.9.8(typescript@5.2.2):
+    optionalDependencies:
+      typescript: 5.2.2
+
+  abitype@1.0.0(typescript@5.2.2):
     optionalDependencies:
       typescript: 5.2.2
 
@@ -1822,24 +1850,24 @@ snapshots:
     dependencies:
       once: 1.4.0
 
-  envio-darwin-arm64@0.0.41:
+  envio-darwin-arm64@1.1.0:
     optional: true
 
-  envio-darwin-x64@0.0.41:
+  envio-darwin-x64@1.1.0:
     optional: true
 
-  envio-linux-arm64@0.0.41:
+  envio-linux-arm64@1.1.0:
     optional: true
 
-  envio-linux-x64@0.0.41:
+  envio-linux-x64@1.1.0:
     optional: true
 
-  envio@0.0.41:
+  envio@1.1.0:
     optionalDependencies:
-      envio-darwin-arm64: 0.0.41
-      envio-darwin-x64: 0.0.41
-      envio-linux-arm64: 0.0.41
-      envio-linux-x64: 0.0.41
+      envio-darwin-arm64: 1.1.0
+      envio-darwin-x64: 1.1.0
+      envio-linux-arm64: 1.1.0
+      envio-linux-x64: 1.1.0
 
   es-define-property@1.0.0:
     dependencies:
@@ -2129,6 +2157,10 @@ snapshots:
   is-unicode-supported@0.1.0: {}
 
   isows@1.0.3(ws@8.13.0):
+    dependencies:
+      ws: 8.13.0
+
+  isows@1.0.4(ws@8.13.0):
     dependencies:
       ws: 8.13.0
 
@@ -2674,6 +2706,23 @@ snapshots:
       '@scure/bip39': 1.2.1
       abitype: 0.9.8(typescript@5.2.2)
       isows: 1.0.3(ws@8.13.0)
+      ws: 8.13.0
+    optionalDependencies:
+      typescript: 5.2.2
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+      - zod
+
+  viem@2.13.7(typescript@5.2.2):
+    dependencies:
+      '@adraffy/ens-normalize': 1.10.0
+      '@noble/curves': 1.2.0
+      '@noble/hashes': 1.3.2
+      '@scure/bip32': 1.3.2
+      '@scure/bip39': 1.2.1
+      abitype: 1.0.0(typescript@5.2.2)
+      isows: 1.0.4(ws@8.13.0)
       ws: 8.13.0
     optionalDependencies:
       typescript: 5.2.2

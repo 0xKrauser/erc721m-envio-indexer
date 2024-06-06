@@ -1,3 +1,4 @@
+import { zeroAddress } from "viem";
 import { createOrUpdateUser } from "../../factory/deployed/actions/createOrUpdateUser";
 import { createOrUpdateFromUser } from "./actions/createOrUpdateFromUser";
 import { createOrUpdateToUser } from "./actions/createOrUpdateToUser";
@@ -20,11 +21,16 @@ export async function nftTransferHandler({
   const fromUser = await createOrUpdateFromUser({ event, context });
   const toUser = await createOrUpdateToUser({ event, context });
 
-  const token = await createOrUpdateToken({ event, context });
+  const { token, metadata } = await createOrUpdateToken({ event, context });
 
   context.NftSummary.set(summary);
   context.Transfer.set(transferEvent);
   context.User.set(fromUser);
   context.User.set(toUser);
+
+  if (metadata) {
+    context.TokenMetadata.set(metadata);
+  }
+
   context.Token.set(token);
 }

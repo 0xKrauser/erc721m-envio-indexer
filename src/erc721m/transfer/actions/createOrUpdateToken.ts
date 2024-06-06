@@ -1,8 +1,11 @@
-import { TokenEntity } from "generated";
+import { TokenEntity, TokenMetadataEntity } from "generated";
 import { nftTransferContext, nftTransferEventLog } from "../constants";
 import { getTokenId } from "../utils";
 import { INITIAL_TOKEN } from "../../constants";
 import { getCollectionId } from "../../utils";
+import { Address } from "viem";
+import { getTokenMetadata } from "../../../getTokenMetadata";
+import { createTokenMetadata } from "./createTokenMetadata";
 
 export async function createOrUpdateToken({
   event,
@@ -10,7 +13,7 @@ export async function createOrUpdateToken({
 }: {
   event: nftTransferEventLog;
   context: nftTransferContext;
-}): Promise<TokenEntity> {
+}): Promise<{ token: TokenEntity; metadata: TokenMetadataEntity | undefined }> {
   const id = getTokenId(event);
   const collection_id = getCollectionId(event);
 
@@ -19,21 +22,27 @@ export async function createOrUpdateToken({
   const currentTime = BigInt(event.blockTimestamp);
   const currentBlock = BigInt(event.blockNumber);
 
-  let metadataUri: string | undefined;
-
-  /*
+  let tokenUri: string | undefined;
+  let metadata;
   if (!token) {
     const { chainId } = event;
     const address = event.srcAddress as Address;
     const tokenId = event.params.id;
-    metadataUri = await getTokenMetadata({
+    tokenUri = await getTokenMetadata({
       chainId,
       address,
       tokenId,
       blockNumber: currentBlock,
     });
+
+    metadata = await createTokenMetadata({
+      id,
+      tokenUri,
+      blockNumber: currentBlock,
+      blockTimestamp: currentTime,
+      isMinted: true,
+    });
   }
-  */
 
   const currentTokenEntity: TokenEntity = token ?? {
     ...INITIAL_TOKEN,
@@ -41,8 +50,8 @@ export async function createOrUpdateToken({
     chain: BigInt(event.chainId),
     collection_id,
     token_id: event.params.id,
-    metadata_id: id, //@TODO
-    metadataUri, //@TODO
+    metadata_id: id,
+    metadataUri: tokenUri,
     minter_id: event.params.to,
     createdAt: currentTime,
     createdBlock: currentBlock,
@@ -55,5 +64,5 @@ export async function createOrUpdateToken({
     updatedBlock: currentBlock,
   };
 
-  return nextTokenEntity;
+  return { token: nextTokenEntity, metadata };
 }

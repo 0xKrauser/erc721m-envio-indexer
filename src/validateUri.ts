@@ -13,14 +13,16 @@ export function validateUri(str: string) {
 
   if (url.protocol === "ar:") {
     const path = url.href.replace(/(^\w+:|^)\/\//, "");
+    const json = path.endsWith(".json");
 
-    return `https://gateway.irys.xyz/${path}`;
+    return `https://gateway.irys.xyz/${path}${json ? "" : ".json"}`;
   }
 
   if (url.protocol === "ipfs:") {
     const path = url.href.replace(/(^\w+:|^)\/\//, "");
+    const json = path.endsWith(".json");
 
-    return `https://ipfs.cf-ipfs.com/${path}`;
+    return `https://ipfs.cf-ipfs.com/${path}${json ? "" : ".json"}`;
   }
 
   return undefined;

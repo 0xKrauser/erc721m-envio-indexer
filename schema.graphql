@@ -287,6 +287,13 @@ type Factory {
 type ContractMetadata {
   id: ID!
   raw: String
+  name: String
+  description: String
+  image: String
+  banner_image: String
+  featured_image: String
+  external_link: String
+  collaborators: [String!]
   createdAt: BigInt
   createdBlock: BigInt
   encounteredAt: BigInt
@@ -298,6 +305,17 @@ type ContractMetadata {
 type TokenMetadata {
   id: ID!
   raw: String
+  name: String
+  description: String
+  image: String
+  external_link: String
+  attributes: String
+  createdAt: BigInt
+  createdBlock: BigInt
+  encounteredAt: BigInt
+  encounteredBlock: BigInt
+  updatedAt: BigInt
+  updatedBlock: BigInt
 }
 
 type Collection {
