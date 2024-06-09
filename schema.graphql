@@ -134,8 +134,10 @@ type CustomMintConfigured {
   merkleRoot: String!
   listId: BigInt!
   amount: BigInt!
+  price: BigInt!
   eventsSummary: String!
   createdAt: BigInt!
+  createdBlock: BigInt!
 }
 
 type CustomMintDeleted {
@@ -144,6 +146,7 @@ type CustomMintDeleted {
   listId: BigInt!
   eventsSummary: String!
   createdAt: BigInt!
+  createdBlock: BigInt!
 }
 
 type CustomMintDisabled {
@@ -152,15 +155,16 @@ type CustomMintDisabled {
   listId: BigInt!
   eventsSummary: String!
   createdAt: BigInt!
+  createdBlock: BigInt!
 }
 
 type CustomMintReenabled {
   id: ID!
   chain: BigInt!
   listId: BigInt!
-  claimable: BigInt!
   eventsSummary: String!
   createdAt: BigInt!
+  createdBlock: BigInt!
 }
 
 type CustomMintRepriced {
@@ -170,6 +174,7 @@ type CustomMintRepriced {
   price: BigInt!
   eventsSummary: String!
   createdAt: BigInt!
+  createdBlock: BigInt!
 }
 
 type MintOpen {
@@ -354,6 +359,23 @@ type Token {
   metadataUri: String
   metadata: TokenMetadata
   transfers: [Transfer!]! @derivedFrom(field: "token")
+  createdAt: BigInt!
+  createdBlock: BigInt!
+  updatedAt: BigInt!
+  updatedBlock: BigInt!
+}
+
+type List {
+  id: ID!
+  chain: BigInt!
+  collection: Collection!
+  listId: BigInt!
+  merkleRoot: String!
+  price: BigInt!
+  supply: BigInt!
+  claimable: BigInt!
+  paused: Boolean!
+  deleted: Boolean!
   createdAt: BigInt!
   createdBlock: BigInt!
   updatedAt: BigInt!

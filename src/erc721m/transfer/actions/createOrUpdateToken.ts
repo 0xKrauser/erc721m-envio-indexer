@@ -3,7 +3,7 @@ import { nftTransferContext, nftTransferEventLog } from "../constants";
 import { getTokenId } from "../utils";
 import { INITIAL_TOKEN } from "../../constants";
 import { getCollectionId } from "../../utils";
-import { Address } from "viem";
+import { type Address } from "viem";
 import { getTokenMetadata } from "../../../getTokenMetadata";
 import { createTokenMetadata } from "./createTokenMetadata";
 
@@ -34,14 +34,15 @@ export async function createOrUpdateToken({
       tokenId,
       blockNumber: currentBlock,
     });
-
-    metadata = await createTokenMetadata({
-      id,
-      tokenUri,
-      blockNumber: currentBlock,
-      blockTimestamp: currentTime,
-      isMinted: true,
-    });
+    if (process.env.SKIP_METADATA !== "true") {
+      metadata = await createTokenMetadata({
+        id,
+        tokenUri,
+        blockNumber: currentBlock,
+        blockTimestamp: currentTime,
+        isMinted: true,
+      });
+    }
   }
 
   const currentTokenEntity: TokenEntity = token ?? {

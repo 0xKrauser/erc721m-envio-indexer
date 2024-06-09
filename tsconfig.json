@@ -12,7 +12,19 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "module": "CommonJS"
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "preserveSymlinks": true,
+    "typeRoots": ["./node_modules/@types"],
+    "paths": {
+      "*": [
+        "./node_modules/*",
+        "./node_modules/@types/*",
+        "./node_modules/.pnpm/*",
+        "./node_modules/.pnpm/@types/*"
+      ],
+      "generated": ["./generated"]
+    }
   },
   "include": [
     "src",
