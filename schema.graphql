@@ -341,6 +341,7 @@ type Collection {
   metadataUri: String
   metadata: ContractMetadata
   tokens: [Token!]! @derivedFrom(field: "collection")
+  lists: [Token!]! @derivedFrom(field: "collection")
   createdBlock: BigInt
   createdAt: BigInt
   encounteredAt: BigInt
